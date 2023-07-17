@@ -31,6 +31,6 @@ def celsius_to_fahrenheit(celsius):
 def fahrenheit_to_celsius(fahrenheit):
     return 5 / 9 * (fahrenheit - 32)
 
-print("not")
+
 # Call the main function
 main()
