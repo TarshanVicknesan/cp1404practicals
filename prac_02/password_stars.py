@@ -19,5 +19,5 @@ def print_password_asterisks(password):
 
 
 # Call the main function
-main()lol
+main()
 
