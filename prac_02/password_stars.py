@@ -2,15 +2,17 @@ LENGTH_OF_PASSWORD = 8
 
 
 def main():
+    password = get_password()
+    print("*" * len(password))
+
+
+def get_password():
     password = input("Enter your password: ")
     while len(password) < LENGTH_OF_PASSWORD:
         print(f"Password should be at least {LENGTH_OF_PASSWORD} characters long.")
         password = input("Enter your password: ")
-
-    print("*" * len(password))
+    return password
 
 
 # Call the main function
-
-
 main()
