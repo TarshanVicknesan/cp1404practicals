@@ -10,6 +10,7 @@ COLOURS = {
     "BLANCHEDALMOND": "#ffebcd",
     "BLUE": "#0000ff"
 }
+print(COLOURS)
 
 colour_name = input("Enter a colour name: ")
 while colour_name != "":
