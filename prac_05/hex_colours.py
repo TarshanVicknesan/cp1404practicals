@@ -1,4 +1,4 @@
-COLORS = {
+COLOURS = {
     "ALICEBLUE": "#f0f8ff",
     "ANTIQUEWHITE": "#faebd7",
     "AQUA": "#00ffff",
@@ -13,5 +13,5 @@ COLORS = {
 
 colour_name = input("Enter a colour name: ")
 while colour_name != "":
-    print(f"The code for \"{colour_name}\" is {COLORS.get(colour_name)}")
+    print(f"The code for \"{colour_name}\" is {COLOURS.get(colour_name)}")
     colour_name = input("Enter a colour name: ")
