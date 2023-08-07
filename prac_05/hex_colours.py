@@ -1,3 +1,7 @@
+"""
+CP1404/CP5632 Practical
+"""
+
 COLOURS = {
     "ALICEBLUE": "#f0f8ff",
     "ANTIQUEWHITE": "#faebd7",
