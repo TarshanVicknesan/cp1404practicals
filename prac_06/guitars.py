@@ -3,7 +3,7 @@ from prac_06.guitar import Guitar
 
 def main():
     print("My guitars!")
-    guitars = []  # To store the list of guitars
+    guitars = []  # created list to store list of guitars
 
     name = input("Name: ")
     while name != "":
