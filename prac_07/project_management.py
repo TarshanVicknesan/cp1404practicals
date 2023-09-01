@@ -131,4 +131,5 @@ def update_project(projects):
     except ValueError:
         print("Invalid input. Please enter a valid project choice.")
 
-    main()
+
+main()
