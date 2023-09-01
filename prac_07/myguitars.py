@@ -1,5 +1,4 @@
-import csv
-from guitar import Guitar
+from prac_07.guitar import Guitar
 
 # Read the CSV file and create a list of Guitar objects
 guitars = []
