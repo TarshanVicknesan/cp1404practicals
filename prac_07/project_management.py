@@ -78,22 +78,10 @@ def save_projects(filename, projects):
         print(f"An error occurred while saving the projects: {e}")
 
 
-def display_projects(completed_projects, incomplete_projects):
-    print("Incomplete projects:")
-    for project in incomplete_projects:
+def display_projects(projects):
+    print("Projects:")
+    for project in projects:
         print(f"  {project}")
-
-    print("Completed projects:")
-    for project in completed_projects:
-        print(f"  {project}")
-
-
-def determine_incomplete_complete(projects):
-    incomplete_projects = [p for p in projects if p.completion_percentage < 100]
-    completed_projects = [p for p in projects if p.completion_percentage == 100]
-    incomplete_projects.sort(key=lambda x: x.start_date)
-    completed_projects.sort(key=lambda x: x.start_date)
-    return completed_projects, incomplete_projects
 
 
 def filter_projects_menu(projects):
