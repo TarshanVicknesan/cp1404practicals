@@ -5,15 +5,13 @@ from prac_07.programming_language import ProgrammingLanguage
 
 def main():
     languages = []
-    in_file = open('languages.csv', 'r')
-    in_file.readline()
-    for line in in_file:
-        parts = line.strip().split(',')
-        reflection = parts[2] == "Yes"
-        pointer_arithmetic = parts[3] == "Yes"
-        language = ProgrammingLanguage(parts[0], parts[1], reflection, pointer_arithmetic, int(parts[4]))
-        languages.append(language)
-    in_file.close()
+    with open('languages.csv', 'r') as in_file:
+        in_file.readline()
+        for line in in_file:
+            parts = line.strip().split(',')
+            reflection = parts[2] == "Yes"
+            language = ProgrammingLanguage(parts[0], parts[1], reflection, int(parts[3]))
+            languages.append(language)
     for language in languages:
         print(language)
 
