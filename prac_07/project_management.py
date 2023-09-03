@@ -3,6 +3,13 @@ from prac_07.project import Project
 
 MENU = "Menu:\nL - Load projects\nS - Save projects\nD - Display projects\nF - Filter projects by date\nA - Add new project\nU - Update project\nQ - Quit"
 
+FILE_NAME = 'projects.txt'
+NAME_INDEX = 0
+DATE_INDEX = 1
+PRIORITY_INDEX = 2
+COST_INDEX = 3
+PERCENT_COMPLETE_INDEX = 4
+
 
 def main():
     """
@@ -45,10 +52,13 @@ def load_projects(filename):
             lines = file.readlines()[1:]  # Skip the header line
             for line in lines:
                 parts = line.strip().split('\t')
-                name, start_date_str, priority, cost_estimate, completion_percentage = parts
-                start_date = datetime.datetime.strptime(start_date_str, "%d/%m/%Y").date()
-                projects.append(
-                    Project(name, start_date, int(priority), float(cost_estimate), int(completion_percentage)))
+                name = parts[NAME_INDEX]
+                start_date = datetime.datetime.strptime(parts[DATE_INDEX].strip(), "%d/%m/%Y").date()
+                priority = int(parts[PRIORITY_INDEX])
+                cost_estimate = float(parts[COST_INDEX])
+                percent_complete = int(parts[PERCENT_COMPLETE_INDEX])
+                project = Project(name, start_date, priority, cost_estimate, percent_complete)
+                projects.append(project)
     except FileNotFoundError:
         print(f"File '{filename}' not found.")
     except Exception as e:
@@ -59,27 +69,16 @@ def load_projects(filename):
 def save_projects(filename, projects):
     try:
         with open(filename, 'w') as file:
-            # Write the header
             file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
-
-            # Write each project
             for project in projects:
-                file.write(
-                    f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t"
-                    f"{project.cost_estimate:.1f}\t{project.completion_percentage}\n"
-                )
+                file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}"
+                           f"\t{project.cost_estimate:.1f}\t{project.completion_percentage}\n")
         print(f"Projects saved to '{filename}'")
     except Exception as e:
         print(f"An error occurred while saving the projects: {e}")
 
 
-def display_projects_menu(projects):
-    incomplete_projects = [p for p in projects if p.completion_percentage < 100]
-    completed_projects = [p for p in projects if p.completion_percentage == 100]
-
-    incomplete_projects.sort(key=lambda x: x.start_date)
-    completed_projects.sort(key=lambda x: x.start_date)
-
+def display_projects(completed_projects, incomplete_projects):
     print("Incomplete projects:")
     for project in incomplete_projects:
         print(f"  {project}")
@@ -89,11 +88,19 @@ def display_projects_menu(projects):
         print(f"  {project}")
 
 
+def determine_incomplete_complete(projects):
+    incomplete_projects = [p for p in projects if p.completion_percentage < 100]
+    completed_projects = [p for p in projects if p.completion_percentage == 100]
+    incomplete_projects.sort(key=lambda x: x.start_date)
+    completed_projects.sort(key=lambda x: x.start_date)
+    return completed_projects, incomplete_projects
+
+
 def filter_projects_menu(projects):
     try:
         date_str = input("Enter a filter date (dd/mm/yyyy): ")
         filter_date = datetime.datetime.strptime(date_str, "%d/%m/%Y").date()
-        filtered_projects = [project for project in projects if project.start_date == filter_date]
+        filtered_projects = [project for project in projects if project.start_date >= filter_date]
         if filtered_projects:
             print("Filtered projects:")
             for project in filtered_projects:
