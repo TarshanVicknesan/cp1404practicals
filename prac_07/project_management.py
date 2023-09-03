@@ -28,7 +28,7 @@ def main():
         elif choice == "S":
             save_projects("projects.txt", projects)  # Save projects to file
         elif choice == "D":
-            display_projects_menu(projects)
+            display_projects(projects)
         elif choice == "F":
             filter_projects_menu(projects)
         elif choice == "A":
