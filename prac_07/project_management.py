@@ -1,43 +1,41 @@
 import datetime
 from prac_07.project import Project
 
+MENU = "Menu:\nL - Load projects\nS - Save projects\nD - Display projects\nF - Filter projects by date\nA - Add new project\nU - Update project\nQ - Quit"
+
 
 def main():
-    projects = []
+    """
+    Main function to manage the project management software.
+    """
+    print("Custom-built project management software - Created by Your Name")
+    projects = load_projects()  # Load existing projects
+    print(f"Loaded {len(projects)} projects")
+    print(MENU)
 
-    while True:
-        print("Menu:")
-        print("- (L)oad projects")
-        print("- (S)ave projects")
-        print("- (D)isplay projects")
-        print("- (F)ilter projects by date")
-        print("- (A)dd new project")
-        print("- (U)pdate project")
-        print("- (Q)uit")
+    choice = input(">>> ").upper()
 
-        choice = input(">>> ").strip().lower()
-
-        if choice == 'l':
-            filename = input("Enter the filename to load projects from: ")
-            projects = load_projects(filename)
-        elif choice == 's':
-            filename = input("Enter the filename to save projects to: ")
-            save_projects(filename, projects)
-        elif choice == 'd':
-            display_projects(projects)
-        elif choice == 'f':
-            date_str = input("Show projects that start after date (dd/mm/yyyy): ")
-            date = datetime.datetime.strptime(date_str, "%d/%m/%Y").date()
-            filter_projects_by_date(projects, date)
-        elif choice == 'a':
-            add_new_project(projects)
-        elif choice == 'u':
-            update_project(projects)
-        elif choice == 'q':
-            print("Thank you for using custom-built project management software.")
-            break
+    while choice != "Q":
+        if choice == "L":
+            load_projects_menu(projects)
+        elif choice == "S":
+            save_projects_menu(projects)
+        elif choice == "D":
+            display_projects_menu(projects)
+        elif choice == "F":
+            filter_projects_menu(projects)
+        elif choice == "A":
+            add_new_project_menu(projects)
+        elif choice == "U":
+            update_project_menu(projects)
         else:
-            print("Invalid choice. Please select a valid option from the menu.")
+            print("Invalid choice")
+
+        print(MENU)
+        choice = input(">>> ").upper()
+
+    save_projects(projects)  # Save updated projects back to a file
+    print(f"{len(projects)} projects saved\nThank you for using custom-built project management software :)")
 
 
 def load_projects(filename):
