@@ -9,4 +9,4 @@ class BoxLayoutDemo(App):
         return self.root
 
 
-BoxLayoutDemo().run()1
+BoxLayoutDemo().run()
