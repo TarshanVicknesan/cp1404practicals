@@ -1,9 +1,3 @@
-"""
-CP1404/CP5632 Practical - Suggested Solution
-Programming Language class with tests.
-"""
-
-
 class ProgrammingLanguage:
     """Represent information about a programming language."""
 
@@ -14,22 +8,22 @@ class ProgrammingLanguage:
         self.reflection = reflection
         self.year = year
 
-    def __repr__(self):
-        """Return string representation of a ProgrammingLanguage."""
-        return f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, First appeared in {self.year}"
+    def __str__(self):
+        return f"{self.name}, Typing: {self.typing}, Reflection: {self.reflection}, " \
+               f"First appeared in {self.year}"
 
     def is_dynamic(self):
         """Determine if language is dynamically typed."""
         return self.typing == "Dynamic"
 
 
-def run_tests():
+def run_programming_language_tests():
     """Run simple tests/demos on ProgrammingLanguage class."""
-    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995)
-    python = ProgrammingLanguage("Python", "Dynamic", True, 1991)
-    visual_basic = ProgrammingLanguage("Visual Basic", "Static", False, 1991)
+    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995, False)
+    python = ProgrammingLanguage("Python", "Dynamic", True, 1991, False)
+    csharp = ProgrammingLanguage("C#", "Static", True, 2000, False)
 
-    languages = [ruby, python, visual_basic]
+    languages = [ruby, python, csharp]
     print(python)
 
     print("The dynamically typed languages are:")
@@ -39,4 +33,4 @@ def run_tests():
 
 
 if __name__ == "__main__":
-    run_tests()
+    run_programming_language_tests()
