@@ -33,4 +33,10 @@ def celsius_to_fahrenheit(celsius):
     return celsius * 9.0 / 5 + 32
 
 
+def fahrenheit_to_celsius(fahrenheit):
+    """fahrenheit_to_celsius made to calculate conversion from fahrenheit to celsius"""
+    return 5 / 9 * (fahrenheit - 32)
 
+
+# Call the main function
+main()
