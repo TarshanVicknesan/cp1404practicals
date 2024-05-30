@@ -28,4 +28,9 @@ Q - Quit"""
     print("Thank you.")
 
 
+def celsius_to_fahrenheit(celsius):
+    """celsius_to_fahrenheit made to calculate conversion from celsius to fahrenheit"""
+    return celsius * 9.0 / 5 + 32
+
+
 
