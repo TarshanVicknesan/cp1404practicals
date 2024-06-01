@@ -56,4 +56,20 @@ def evaluate_score(score):
     return "Bad"
 
 
+def validate_score():
+    """validate score function to perform error-checking on scores"""
+    valid_score = False
+    while not valid_score:
+        user_input = input("Enter a valid score (0-100 inclusive): ")
 
+        if user_input.isdigit():
+            score = int(user_input)
+            if 0 <= score <= 100:
+                print("Valid score:", score)
+                valid_score = True
+            else:
+                print("Invalid score. Please enter a value between 0 and 100.")
+        else:
+            print("Invalid input. Please enter a valid integer score.")
+
+    return score
