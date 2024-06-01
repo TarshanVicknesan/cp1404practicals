@@ -47,4 +47,13 @@ def main():
     print("Goodbye!")
 
 
+def evaluate_score(score):
+    """reused score.py evaluate score function to get comment on score"""
+    if score >= 90:
+        return "Excellent"
+    if score >= 50:
+        return "Passable"
+    return "Bad"
+
+
 
