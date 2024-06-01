@@ -73,3 +73,11 @@ def validate_score():
             print("Invalid input. Please enter a valid integer score.")
 
     return score
+
+
+def show_stars(score):
+    """simple function to show the amount of stars(asterisks) depending on score inputted"""
+    print("*" * score)
+
+
+main()
