@@ -18,6 +18,7 @@ def main():
 
 
 def evaluate_score(score):
+    """evaluate score function to return grade/comment after input is given"""
     if score < 0 or score > 100:
         return "Invalid score"
     elif score >= 90:
