@@ -1,31 +1,20 @@
-# # Task 1: Write the user's name to "name.txt"
-# name = input("Enter your name: ")
-# file = open("name.txt", "w")
-# file.write(name)
-# file.close()
-
-# # Task 2: Read the name from "name.txt" and print it
-# file = open("name.txt", "r")
-# name = file.read()
-# file.close()
-# print(f"Your name is {name}")
-
-# # Task 3: Read the first two numbers from "numbers.txt" and add them
-# file = open("numbers.txt", "r")
-# numbers = file.readlines()
-# file.close()
-# first_number = int(numbers[0])
-# second_number = int(numbers[1])
-# result = first_number + second_number
-# print(f"The sum of the first two numbers is {result}")
-#
-# Task 4: Print the total for all lines in a file with any number of numbers
-filename = "numbers.txt"
-total = 0
-file = open(filename, "r")
-numbers = file.readlines()
+# Task 1: Write code that asks the user for their name,
+# then opens a file called name.txt and writes that name to it. Use open and close for this question.
+name = input("Please enter your name: ")
+file = open("name.txt", "w")
+file.write(name)
 file.close()
-for number in numbers:
-    total += int(number)
-print(f"The total sum is {total}")
+
+# Task 2: In the same file, but as if it were a separate program,
+# write code that opens "name.txt" and reads the name (as above) then prints (note the exact output)
+
+
+# Task 3: Write code that opens numbers.txt, reads only the first two numbers,
+# adds them together then prints the result,
+# which should be... 59. Use with instead of open and close for this question.
+
+
+# Task 4: Now write a fourth block of code that prints the total for all lines in numbers.txt.
+# This should work for a file with any number of numbers.
+# Use with instead of open and close for this question.
 
