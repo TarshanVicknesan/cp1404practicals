@@ -1,8 +1,8 @@
 numbers = []
 
 for i in range(5):
-    num = int(input("Number: "))
-    numbers.append(num)
+    number = float(input("Number: "))
+    numbers.append(number)
 
 print(f"The first number is {numbers[0]}")
 print(f"The last number is {numbers[-1]}")
