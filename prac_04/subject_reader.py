@@ -24,4 +24,10 @@ def load_data():
     return data
 
 
+def display_subject_details(data):
+    """Display subject details."""
+    for subject in data:
+        print(f"{subject[0]} is taught by {subject[1]} and has {subject[2]} students")
+
+
 main()
