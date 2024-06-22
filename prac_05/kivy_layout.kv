@@ -6,6 +6,7 @@ BoxLayout:
         text: app.status_text
         font_size: 60
         size_hint_y: 0.2
+
     BoxLayout:
         orientation: 'horizontal'
         Button:
@@ -14,7 +15,10 @@ BoxLayout:
         Button:
             text: "Down"
             on_press: app.handle_press(-1)
+
     BoxLayout:
-    id: names_box
-Label:
-    text: "I did this :)"
+        id: names_box
+
+    Label:
+        text: "I did this :)"
+
